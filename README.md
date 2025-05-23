@@ -14,7 +14,7 @@ A sleek and user-friendly **News Application** built with **Flutter** that deliv
 ## Home Screen
 <img width="601" alt="Home Screen" src="https://raw.githubusercontent.com/khalidabdelrazk/planets-glb-files/refs/heads/main/home_screen.jpg">
 
-## Drawer Screen on Drawer
+## Home Screen on Drawer
 <img width="600" alt="Drawer Screen on Drawer" src="https://raw.githubusercontent.com/khalidabdelrazk/planets-glb-files/refs/heads/main/drawer_screen.jpg">
 
 ## Article Screen
