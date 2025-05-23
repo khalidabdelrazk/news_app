@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/core/provider/language_provider.dart';
+import 'package:news/core/provider/search_provider.dart';
 import 'package:news/core/provider/theme_provider.dart';
 import 'package:news/core/routes/routes.dart';
 import 'package:news/core/theme/app_theme.dart';
@@ -10,6 +11,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider<ThemeProvider>(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider<SearchProvider>(create: (_) => SearchProvider()),
         ChangeNotifierProvider<LanguageProvider>(
           create: (_) => LanguageProvider(),
         ),
