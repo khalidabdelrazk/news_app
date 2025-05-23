@@ -7,7 +7,6 @@ import 'package:news/model/news_response.dart';
 import 'package:news/model/source_response.dart';
 
 class ApiManager {
-  // static LanguageProvider languageProvider = LanguageProvider();
   static Future<SourceResponse?> getSources(String newsId,String lang) async {
     Uri url = Uri.https(ApiConstants.apiUrl, ApiEndPoints.sources, {
       'apiKey': ApiConstants.apiKey,

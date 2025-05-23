@@ -22,9 +22,7 @@ class NewsDetails extends StatefulWidget {
 
 class _NewsDetailsState extends State<NewsDetails> {
   int page = 1;
-  // bool hasMore = true;
   List<Articles> articles = [];
-  // bool isLoadingMore = false;
   bool isInitialized = false;
 
   late LanguageProvider languageProvider;
