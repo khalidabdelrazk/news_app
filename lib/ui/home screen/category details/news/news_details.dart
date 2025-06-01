@@ -4,13 +4,14 @@ import 'package:news/core/assets/my_images.dart';
 import 'package:news/core/theme/app_theme.dart';
 import 'package:news/model/news_response.dart';
 import 'package:news/model/source_response.dart';
-import 'package:news/ui/cubit/home_states.dart';
-import 'package:news/ui/cubit/home_view_model.dart';
+
 import 'package:news/ui/home%20screen/category%20details/news/news_bottom_sheet.dart';
 import 'package:news/ui/home%20screen/category%20details/news/news_card.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/provider/language_provider.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../view model/home_states.dart';
+import '../../../../view model/home_view_model.dart';
 
 class NewsDetails extends StatefulWidget {
   final Sources source;

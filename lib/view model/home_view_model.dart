@@ -1,10 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news/api/api_manger.dart';
+import 'package:news/di/dependencies.dart';
 import 'package:news/model/news_response.dart';
-import 'package:news/ui/cubit/home_states.dart';
+import 'package:news/repository/sources/repo/sources_repository.dart';
+import '../repository/news/repo/news_repository.dart';
+import 'home_states.dart';
 
 class HomeViewModel extends Cubit<HomeStates> {
+  late SourcesRepository sourcesRepository = getSourceRepository();
+  late NewsRepository newsRepository = getNewsRepository();
+
   HomeViewModel() : super(ShowLoadingState());
   List<Articles> myArticles = [];
   final ScrollController listViewController = ScrollController();
@@ -13,7 +18,7 @@ class HomeViewModel extends Cubit<HomeStates> {
   getSources(String newsId, String lang) async {
     try {
       emit(ShowLoadingState());
-      var response = await ApiManager.getSources(newsId, lang);
+      var response = await sourcesRepository.getSources(newsId, lang);
       if (response?.status == 'error') {
         // todo: Error!!
         emit(ErrorState(response!.message!));
@@ -33,11 +38,11 @@ class HomeViewModel extends Cubit<HomeStates> {
     // hasMore = true;
     try {
       emit(ShowLoadingState());
-      var response = await ApiManager.getNews(
+      var response = await newsRepository.getNews(
         sourceId,
         lang,
         controller: controller,
-        page: 1
+        page: 1,
       );
       if (response?.status == 'error') {
         // todo: error!!
@@ -55,18 +60,21 @@ class HomeViewModel extends Cubit<HomeStates> {
     }
   }
 
-
   int page = 1;
   bool isLoadingMore = false;
   bool hasMore = true;
-  Future<void> fetchMoreNews(String sourceId, String lang, String controller) async {
-    if(!hasMore){
-      return ;
+  Future<void> fetchMoreNews(
+    String sourceId,
+    String lang,
+    String controller,
+  ) async {
+    if (!hasMore) {
+      return;
     }
     isLoadingMore = true;
     emit(FetchingMoreNews(myArticles));
-    try{
-      final response = await ApiManager.getNews(
+    try {
+      final response = await newsRepository.getNews(
         sourceId,
         lang,
         page: ++page,
@@ -84,7 +92,7 @@ class HomeViewModel extends Cubit<HomeStates> {
           emit(NewsSuccessState(myArticles));
         }
       }
-    }catch(e){
+    } catch (e) {
       emit(ErrorState(e.toString()));
     }
   }

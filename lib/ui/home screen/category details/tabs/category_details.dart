@@ -3,11 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/core/provider/language_provider.dart';
 import 'package:news/core/theme/app_colors.dart';
 import 'package:news/core/theme/app_theme.dart';
-import 'package:news/ui/cubit/home_states.dart';
-import 'package:news/ui/cubit/home_view_model.dart';
+
 import 'package:news/ui/home%20screen/category%20details/tabs/source_tab_bar.dart';
 
 import 'package:provider/provider.dart';
+
+import '../../../../view model/home_states.dart';
+import '../../../../view model/home_view_model.dart';
 
 class CategoryDetails extends StatefulWidget {
   final String sourceId;
