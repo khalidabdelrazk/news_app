@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news/di/dependencies.dart';
+import 'package:news/di/di.dart';
 import 'package:news/model/news_response.dart';
 import 'package:news/repository/sources/repo/sources_repository.dart';
 import '../repository/news/repo/news_repository.dart';

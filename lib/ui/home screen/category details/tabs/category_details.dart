@@ -38,9 +38,8 @@ class _CategoryDetailsState extends State<CategoryDetails> {
         if (state is ErrorState) {
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("Error!! Please try again", style: AppTheme.lightBold20),
+              Text(state.error, style: AppTheme.lightBold20,textAlign: TextAlign.center,),
               ElevatedButton(
                 onPressed: () {
                   homeViewModel.getSources(widget.sourceId, languageProvider.selectedLanguage);

@@ -90,7 +90,7 @@ class _NewsDetailsState extends State<NewsDetails> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Error!! Please try again", style: AppTheme.lightBold20),
+                Text(state.error, style: AppTheme.lightBold20),
                 SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () {
